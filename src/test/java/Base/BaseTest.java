@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.InventoryPage;
 import Pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,8 +12,9 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
     public static WebDriver driver;
     public WebDriverWait wait;
-    //ovde na neki nacin "registrujem" sve klase stranica
+    //ovde inicijalizujem sve klase paketa Pages
     public LoginPage loginPage;
+    public InventoryPage inventoryPage;
 
     @BeforeClass
     public void setup(){

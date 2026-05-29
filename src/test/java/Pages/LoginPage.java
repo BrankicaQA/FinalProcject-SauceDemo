@@ -7,10 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BaseTest {
-/*koristim anotaciju za pretpragu elementa (na osnovu lokatora) na stranici.
-Kreiram konsturktor klase koji nosi ime stranice i koristim pomocni mehanicazam POM-a (PageFactory) koji automatski povezuje anotaciju sa elementom na stranici
-Nakon kreiranja anotacija kreiram metode koje cu kasnije pozivati u testu
-Ovaj princip rada primenicu na sve klse unutar Pages paketa*/
+/*U klasi LoginPage koristim @FindBy anotacije za deklaraciju elemenata na stranici.
+Konstruktor klase inicijalizuje elemente pomoću PageFactory.initElements, što je deo Page Object Model (POM) mehanizma.
+Na ovaj način se obezbeđuje da su svi elementi spremni za upotrebu u testovima.
+Nakon definisanja anotacija kreiram metode koje enkapsuliraju interakciju sa elementima (npr. unos korisničkog imena, lozinke, klik na login dugme),
+čime se postiže čitljivost i ponovna upotrebljivost u testovima.*/
 
     public LoginPage(){
         PageFactory.initElements(driver, this);
@@ -25,7 +26,25 @@ Ovaj princip rada primenicu na sve klse unutar Pages paketa*/
     @FindBy(id= "login-button")
     public WebElement loginButton;
 
+    @FindBy(id="inventory_container")
+    public WebElement inventoryContainer;
+
+    @FindBy(css=".error-message-container.error")
+    public WebElement errorMessage;
+
     //----------------
+
+    public void loginSetup(String username, String password){
+        usernameField.clear();
+        usernameField.sendKeys(username);
+        passwordField.clear();
+        passwordField.sendKeys(password);
+        loginButton.click();
+    }
+
+
+
+
 
 
 
