@@ -1,15 +1,21 @@
 package Test;
 
 import Base.BaseTest;
+import Base.ExcelReader;
 import Pages.LoginPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Objects;
 
 public class TestLogin extends BaseTest {
@@ -49,6 +55,28 @@ public class TestLogin extends BaseTest {
 
         Assert.assertTrue(loginPage.errorMessage.isDisplayed());
     }
+
+    @Test
+    public void addUsersFromExcelTest() throws IOException {
+        int rowCount = excelReader.getLastRow("Sheet1");
+
+        for (int i = 1; i <= rowCount; i++) {
+            String username = excelReader.getStringData("Sheet1", i, 0);
+            String password = excelReader.getStringData("Sheet1", i, 1);
+
+            loginPage.loginSetup(username, password);
+
+            if (username.equals("locked_out_user")) {
+                // Locked_out_user ne može da se uloguje i očekujemo error poruku
+                Assert.assertTrue(loginPage.errorMessage.isDisplayed(), "Error message should be displayed for locked_out_user");
+            } else {
+                // Svi ostali useri se uspešno loguju i očekujemo inventory.html
+                Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+            }
+
+            driver.navigate().to("https://www.saucedemo.com");
+
+         }}
 
     @AfterMethod
     public void closeApp(){

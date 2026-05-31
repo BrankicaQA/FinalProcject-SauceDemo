@@ -29,7 +29,7 @@ Nakon definisanja anotacija kreiram metode koje enkapsuliraju interakciju sa ele
     @FindBy(id="inventory_container")
     public WebElement inventoryContainer;
 
-    @FindBy(css=".error-message-container.error")
+    @FindBy(css="div.error-message-container.error")
     public WebElement errorMessage;
 
     //----------------
