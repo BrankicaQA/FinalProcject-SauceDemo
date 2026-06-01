@@ -1,6 +1,7 @@
 package Base;
 
 import Pages.CartPage;
+import Pages.CheckoutPage;
 import Pages.InventoryPage;
 import Pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -21,6 +22,7 @@ public class BaseTest {
     public InventoryPage inventoryPage;
     public ExcelReader excelReader;
     public CartPage cartPage;
+    public CheckoutPage checkoutPage;
 
 
     @BeforeClass
