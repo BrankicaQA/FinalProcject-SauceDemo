@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.CartPage;
 import Pages.InventoryPage;
 import Pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class BaseTest {
@@ -18,6 +20,7 @@ public class BaseTest {
     public LoginPage loginPage;
     public InventoryPage inventoryPage;
     public ExcelReader excelReader;
+    public CartPage cartPage;
 
 
     @BeforeClass
