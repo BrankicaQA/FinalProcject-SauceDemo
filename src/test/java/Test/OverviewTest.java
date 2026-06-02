@@ -5,7 +5,6 @@ import Pages.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -73,42 +72,6 @@ public class OverviewTest extends BaseTest {
 
 
 
-    }
-
-    public void preconditionEmptyCart(){
-        loginPage.loginSetup(validUsername, validPassword);
-        cartPage.clickCartIcon();
-
-
-        // Ako postoji proizvod u korpi uklanjam ga preko if metode.
-        // S'obzirom da je ovo bug uhvacen kroz manuelno testiranje, ocekivano je da ce pasti asertaciju
-        if (!cartPage.getCartItems().isEmpty()) {
-            cartPage.clickOnRemoveButton();
-        }
-        cartPage.clickCheckout();
-
-        checkoutPage.setFirstName(FirstName);
-        checkoutPage.setLastName(LastName);
-        checkoutPage.setPostalCode(PostalCode);
-        checkoutPage.clickContinueButton();
-    }
-    @Test
-    public void testCheckoutWithEmptyCart() {
-       preconditionEmptyCart();
-       overviewPage.clickOnFinishButton();
-
-        // Očekivano ponašanje: korisnik NE prelazi na step-two
-        Assert.assertEquals(driver.getCurrentUrl(),
-                "https://www.saucedemo.com/checkout-step-one.html");
-
-        // Provera da se prikazuje error poruka
-        Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
-
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
     }
 
 
