@@ -22,6 +22,8 @@ public class InventoryPage extends BaseTest {
     @FindBy(className = "shopping_cart_badge")
     WebElement cartIcon;
 
+
+
       public int getProductCount(){
         return products.size();
     }
@@ -39,6 +41,9 @@ public class InventoryPage extends BaseTest {
             return "";
         }
 
+    }
+    public void clickOnCartIcon(){
+          cartIcon.click();
     }
 
 

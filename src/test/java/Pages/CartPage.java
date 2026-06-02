@@ -54,4 +54,13 @@ public class CartPage extends BaseTest {
     public void clickOnRemoveButton(){
         removeButton.click();
     }
+
+    public int getCartIconCount() {
+        try {
+            return Integer.parseInt(cartIcon.getText());
+        } catch (Exception e) {
+            // Ako badge ne postoji ili je prazan, vraćamo 0
+            return 0;
+        }
+    }
 }
