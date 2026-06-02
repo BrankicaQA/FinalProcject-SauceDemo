@@ -105,8 +105,7 @@ public class CheckoutTest extends BaseTest {
 
     }
 
-    @Test  //ovaj test ocekujemo da ce pasti, zato ga provlacim kroz Try&Catch metodu kojom cu uhvatiti bug, dokumentovati ga ali nece pad testa prekinuti ostatak izvrsavanja
-
+    @Test
         public void testCheckoutWithProductInCart() {
         cartPage.clickCartIcon();
         // Ako postoji proizvod u korpi uklanjam ga preko if metode.
