@@ -24,6 +24,9 @@ public class CartPage extends BaseTest {
     @FindBy(className = "shopping_cart_link")
     WebElement cartIcon;
 
+    @FindBy(id="remove-sauce-labs-bike-light")
+    WebElement removeButton;
+
     public List<WebElement> getCartItems(){
         return cartItems;
     }
@@ -46,5 +49,9 @@ public class CartPage extends BaseTest {
 
     public void clickCartIcon(){
         cartIcon.click();
+    }
+
+    public void clickOnRemoveButton(){
+        removeButton.click();
     }
 }

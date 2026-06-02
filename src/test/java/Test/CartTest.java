@@ -34,6 +34,7 @@ public class CartTest extends BaseTest {
     }
     @Test
     public void verifyProductsAppearInCart() {
+
         inventoryPage.addProduct(1);
 
         cartPage.clickCartIcon();
