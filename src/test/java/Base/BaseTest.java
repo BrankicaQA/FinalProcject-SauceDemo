@@ -1,9 +1,6 @@
 package Base;
 
-import Pages.CartPage;
-import Pages.CheckoutPage;
-import Pages.InventoryPage;
-import Pages.LoginPage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +20,7 @@ public class BaseTest {
     public ExcelReader excelReader;
     public CartPage cartPage;
     public CheckoutPage checkoutPage;
+    public OverviewPage overviewPage;
 
 
     @BeforeClass

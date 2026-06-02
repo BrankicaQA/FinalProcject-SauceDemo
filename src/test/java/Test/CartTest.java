@@ -32,6 +32,7 @@ public class CartTest extends BaseTest {
         inventoryPage.addProduct(0);
 
     }
+
     @Test
     public void verifyProductsAppearInCart() {
 
@@ -62,7 +63,7 @@ public class CartTest extends BaseTest {
         cartPage.clickCartIcon();
         cartPage.clickContinueShopping();
 
-        Assert.assertTrue(inventoryPage.getProductCount() > 0);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
     @Test
