@@ -93,8 +93,11 @@ public class NavigationTest extends BaseTest {
     public void testCloseBurgerMenuWithX() {
         navigationPage.openBurgerMenu();
         navigationPage.closeBurgerMenu();
-        Assert.assertFalse(navigationPage.getLogoutOption().isDisplayed(),
-                "Burger menu did not close after clicking X");
+
+        Assert.assertTrue(driver.findElements(By.id("bm-menu")).isEmpty());
+        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"));
+
+        Assert.assertTrue(driver.findElement(By.className("inventory_list")).isDisplayed());
     }
 
 
