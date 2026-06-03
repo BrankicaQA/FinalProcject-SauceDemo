@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,14 +24,20 @@ public class CompatibilityTest extends BaseTest {
         driver.navigate().to("https://www.saucedemo.com/");
 
         loginPage = new LoginPage();
+        inventoryPage = new InventoryPage();
         loginPage.loginSetup(validUsername, validPassword);
 
     }
     @Test
-    public void testLoginFirefox() {
+    public void testLoginChromeBrowser() {
 
         Assert.assertEquals(driver.getCurrentUrl(),
                 "https://www.saucedemo.com/inventory.html");
+    }
+
+    @AfterMethod
+    public void tearDown(){
+        driver.quit();
     }
 
 }

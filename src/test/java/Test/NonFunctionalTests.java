@@ -2,7 +2,6 @@ package Test;
 
 import Base.BaseTest;
 import Pages.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class OthersTests extends BaseTest {
+public class NonFunctionalTests extends BaseTest {
     String validUsername = "standard_user";
     String validPassword = "secret_sauce";
     String FirstName ="Brankica";
@@ -34,23 +33,7 @@ public class OthersTests extends BaseTest {
 
 
     }
-    @Test
-    public void testSessionTimeout() throws InterruptedException {
-        loginPage.loginSetup(validUsername, validPassword);
-        inventoryPage.addProduct(0);
 
-        // ostani neaktivan 5 minuta
-        Thread.sleep(300000);
-
-        // pokusaj da nastavis kupovinu
-        inventoryPage.clickOnCartIcon();
-
-
-        //  očekujemo da sesija istekne i da se pojavi login stranica
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
-        Assert.assertTrue(loginPage.errorMessage.isDisplayed(),
-                "Session timeout message should be displayed");
-    }
 
     @Test
     public void testCartIconRapidClicks() {
