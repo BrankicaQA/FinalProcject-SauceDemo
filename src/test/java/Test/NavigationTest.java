@@ -55,38 +55,43 @@ public class NavigationTest extends BaseTest {
                 "User was not redirected to Sauce Labs website");
     }
 
-    @Test
+    @Test //ovaj test ocekujemo da ce da padne na drugu asertaciju jer je uocen BUG
     public void testResetAppState() {
+        inventoryPage.addProduct(0);
         navigationPage.openBurgerMenu();
         navigationPage.clickResetAppState();
-        boolean cartEmpty = driver.findElements(By.className("shopping_cart_badge")).isEmpty();
-        Assert.assertTrue(cartEmpty, "Cart was not emptied after reset");
+
+        Assert.assertTrue(driver.findElements(By.className("shopping_cart_icon")).isEmpty());
+
+        //kroz maunelno tesitranje uocen je bug da se  dugme "Remove" ne resetuje na "Add to cart".
+        //S'obzirom da sam dodala proizvod sa indeksom 0 onda je logicno da proveravam i da li se isit resetovao nakon pozivanja "clickResetAppState()" metode
+
+        Assert.assertEquals(inventoryPage.getProductButton(0).getText(), "Add to cart");
+
     }
 
     @Test
     public void testAllItemsOption() {
         navigationPage.openBurgerMenu();
         navigationPage.clickAllItems();
-        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"),
-                "User was not redirected to inventory page");
+        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"));
     }
 
     @Test
     public void testCloseBurgerMenuOutsideClick() {
         navigationPage.openBurgerMenu();
-        // Simulate outside click → click on page body
+
         driver.findElement(By.className("inventory_list")).click();
-        Assert.assertFalse(navigationPage.getLogoutOption().isDisplayed(),
-                "Burger menu did not close after outside click");
+        Assert.assertFalse(navigationPage.getLogoutOption().isDisplayed());
     }
 
     @Test
     public void testNavigationOptionsVisible() {
         navigationPage.openBurgerMenu();
-        Assert.assertTrue(navigationPage.getAllItemsOption().isDisplayed(), "All Items not visible");
-        Assert.assertTrue(navigationPage.getAboutOption().isDisplayed(), "About not visible");
-        Assert.assertTrue(navigationPage.getLogoutOption().isDisplayed(), "Logout not visible");
-        Assert.assertTrue(navigationPage.getResetAppStateOption().isDisplayed(), "Reset App State not visible");
+        Assert.assertTrue(navigationPage.getAllItemsOption().isDisplayed());
+        Assert.assertTrue(navigationPage.getAboutOption().isDisplayed());
+        Assert.assertTrue(navigationPage.getLogoutOption().isDisplayed());
+        Assert.assertTrue(navigationPage.getResetAppStateOption().isDisplayed());
     }
 
     @Test

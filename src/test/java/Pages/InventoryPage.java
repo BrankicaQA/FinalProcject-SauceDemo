@@ -45,6 +45,10 @@ public class InventoryPage extends BaseTest {
     public void clickOnCartIcon(){
           cartIcon.click();
     }
+    public WebElement getProductButton(int index) {
+        List<WebElement> buttons = driver.findElements(By.cssSelector(".btn_inventory"));
+        return buttons.get(index);
+    }
 
 
 
