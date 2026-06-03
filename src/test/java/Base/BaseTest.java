@@ -22,6 +22,8 @@ public class BaseTest {
     public CheckoutPage checkoutPage;
     public OverviewPage overviewPage;
 
+    public NavigationPage navigationPage;
+
 
     @BeforeClass
     public void setup() throws IOException {
