@@ -47,4 +47,25 @@ public class NavigationPage {
         return driver.findElement(By.className("shopping_cart_link"));
     }
     //-------------------------
+
+    public void openBurgerMenu() {
+        getBurgerMenu().click(); }
+
+    public void closeBurgerMenu() {
+        getCloseMenu().click(); }
+
+    public void clickLogout() {
+        getLogoutOption().click(); }
+
+    public void clickAbout() {
+        getAboutOption().click(); }
+
+    public void clickResetAppState() {
+        getResetAppStateOption().click(); }
+
+    public void clickAllItems() {
+        getAllItemsOption().click(); }
+
+    public void clickCartIcon()
+    { getCartIcon().click(); }
 }
