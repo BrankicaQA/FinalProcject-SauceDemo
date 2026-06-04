@@ -21,6 +21,7 @@ public class BaseTest {
     public CartPage cartPage;
     public CheckoutPage checkoutPage;
     public OverviewPage overviewPage;
+    public ProductDetailPage productDetailPage;
 
 
     @BeforeClass

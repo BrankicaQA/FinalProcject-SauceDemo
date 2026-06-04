@@ -27,6 +27,7 @@ public class CartPage extends BaseTest {
     @FindBy(id="remove-sauce-labs-bike-light")
     WebElement removeButton;
 
+
     public List<WebElement> getCartItems(){
         return cartItems;
     }
@@ -62,5 +63,33 @@ public class CartPage extends BaseTest {
             // Ako badge ne postoji ili je prazan, vraćamo 0
             return 0;
         }
+    }
+
+    public boolean containsProduct(String productName){
+        return cartItems.stream()
+                .anyMatch(item -> item.getText().contains(productName));
+    }
+
+    public String getProductName(int index){
+        return cartItems.get(index).findElement(By.className("inventory_item_name")).getText();
+    }
+
+    public String getProductPrice(int index){
+        return cartItems.get(index).findElement(By.className("inventory_item_price")).getText();
+    }
+
+    public boolean isProductDisplayed(String productName){
+        return cartItems.stream()
+                .anyMatch(item ->
+                        item.findElement(By.className("inventory_item_name"))
+                                .getText()
+                                .equals(productName));
+    }
+
+    public int getNumberOfProductsInCart(){
+        return cartItems.size();
+    }
+    public boolean isCartEmpty(){
+        return cartItems.isEmpty();
     }
 }
