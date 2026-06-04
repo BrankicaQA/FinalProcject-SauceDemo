@@ -20,26 +20,19 @@ public class InventoryPage extends BaseTest {
     List<WebElement> products;
 
     @FindBy(className = "shopping_cart_badge")
-    WebElement cartIcon;
-
+    public WebElement cartIcon;
     @FindBy(css = ".product_sort_container")
-    WebElement sortDropdown;
-
+    public WebElement sortDropdown;
     @FindBy(id = "item_4_title_link")
     public WebElement backpackLink;
-
     @FindBy(className = "shopping_cart_badge")
     public WebElement cartBadge;
-
     @FindBy(className = "inventory_item_name")
     public WebElement productName;
-
     @FindBy(className = "inventory_item_price")
     public WebElement productPrice;
-
     @FindBy(className = "inventory_item_desc")
     public WebElement productDescription;
-
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     public WebElement addToCartBackpack;
 
@@ -48,17 +41,14 @@ public class InventoryPage extends BaseTest {
     public int getProductCount(){
         return products.size();
     }
-
     // Dodavanje proizvoda po indexu
     public void addProduct(int index){
         products.get(index).findElement(By.tagName("button")).click();
     }
-
     // Uklanjanje proizvoda po indexu
     public void removeProduct(int index){
         products.get(index).findElement(By.tagName("button")).click();
     }
-
     // Dohvat badge-a
     public String getCartQuantity(){
         try {
@@ -70,21 +60,16 @@ public class InventoryPage extends BaseTest {
     public void addBackpackToCart() {
         addToCartBackpack.click();
     }
-
     public void openBackpackDetails() {
         backpackLink.click();
     }
-
     public String getProductName() {
         return productName.getText();
     }
-
     public String getProductPrice() {
         return productPrice.getText();
     }
-
     public String getProductDescription() {
         return productDescription.getText();
     }
-
 }

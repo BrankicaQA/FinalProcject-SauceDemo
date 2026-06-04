@@ -40,9 +40,6 @@ public class OverviewTest extends BaseTest {
         checkoutPage.setLastName(LastName);
         checkoutPage.setPostalCode(PostalCode);
         checkoutPage.clickContinueButton();
-
-
-
     }
     @Test
     public void testOverviewPageInformation() {
@@ -51,33 +48,22 @@ public class OverviewTest extends BaseTest {
         // (Payment Information, Shipping Information, Price Total, Cancel i Finish dugmad, kao i lista korpe),
         // bez detalja o konkretnim proizvodima
         Assert.assertTrue(overviewPage.cartList.isDisplayed());
-
         Assert.assertEquals(overviewPage.getSummaryInfoByName("Payment Information:"),
                 "Payment Information:");
-
         Assert.assertEquals(overviewPage.getSummaryInfoByName("Shipping Information:"),
                 "Shipping Information:");
-
         Assert.assertEquals(overviewPage.getSummaryInfoByName("Price Total"),
                 "Price Total");
-
         Assert.assertTrue(overviewPage.cancelButton.isDisplayed());
         overviewPage.clickOnCancelButton();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
-
         driver.navigate().back();
         Assert.assertTrue(overviewPage.finishButton.isDisplayed());
         overviewPage.clickOnFinishButton();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-complete.html");
-
-
-
-
     }
     @AfterMethod
     public void tearDown(){
         driver.quit();
     }
-
-
 }

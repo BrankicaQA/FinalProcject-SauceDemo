@@ -34,9 +34,6 @@ public class TestLogin extends BaseTest {
 //Nakon kreiranja klasa u paketu Pages, registrujem iliti iniciram ih unutar klase BaseTest a onda na osnovu njih kreiram objekte tih klasa u klasi Test
 
         loginPage = new LoginPage();
-
-
-
     }
 
     @Test
@@ -75,7 +72,6 @@ public class TestLogin extends BaseTest {
             }
 
             driver.navigate().to("https://www.saucedemo.com");
-
          }}
 
     @AfterMethod

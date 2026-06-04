@@ -26,11 +26,9 @@ public class CompatibilityTest extends BaseTest {
         loginPage = new LoginPage();
         inventoryPage = new InventoryPage();
         loginPage.loginSetup(validUsername, validPassword);
-
     }
     @Test
     public void testLoginChromeBrowser() {
-
         Assert.assertEquals(driver.getCurrentUrl(),
                 "https://www.saucedemo.com/inventory.html");
     }

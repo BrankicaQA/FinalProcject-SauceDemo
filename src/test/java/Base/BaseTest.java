@@ -22,8 +22,6 @@ public class BaseTest {
     public CheckoutPage checkoutPage;
     public OverviewPage overviewPage;
     public ProductDetailPage productDetailPage;
-
-
     @BeforeClass
     public void setup() throws IOException {
         WebDriverManager.firefoxdriver().setup();
@@ -32,13 +30,10 @@ Na ovaj način svi username-i i password-i stoje u Excel fajlu,
 pa se testovi lakše održavaju i menjaju bez potrebe da se menja Java kod.
 Ovaj pristup se zove data-driven testing i omogućava da jedan test pokrije više scenarija*/
 
-        excelReader = new ExcelReader("AllUsers.xlsx");
-
-    }
+        excelReader = new ExcelReader("AllUsers.xlsx");}
 
     public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     } //ubacila sam i ovu metodu ako budem imala problema sa nalazenjem elementa na stranici ako se prethodno ne skroluje do tog elementa
-
 }

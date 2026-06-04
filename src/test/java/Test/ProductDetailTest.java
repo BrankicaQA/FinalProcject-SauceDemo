@@ -37,11 +37,9 @@ public class ProductDetailTest extends BaseTest {
     public void verifyProductDetailPageForSauceLabsBackpack() {
 
         inventoryPage.addBackpackToCart();
-
         Assert.assertEquals(inventoryPage.cartBadge.getText(), "1");
 
         inventoryPage.openBackpackDetails();
-
         Assert.assertEquals(productDetailPage.getButtonText(), "Remove");
 
         productDetailPage.clickAddRemoveButton();
@@ -59,9 +57,7 @@ public class ProductDetailTest extends BaseTest {
         driver.navigate().back();
         Assert.assertTrue(driver.getCurrentUrl().contains("inventory-item"));
 
-
         productDetailPage.clickBackToProducts();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("inventory"));
     }
 
@@ -74,11 +70,8 @@ public class ProductDetailTest extends BaseTest {
 
         inventoryPage.openBackpackDetails();
         Assert.assertEquals(productDetailPage.getProductName(), inventoryName);
-
         Assert.assertEquals(productDetailPage.getProductPrice(), inventoryPrice);
-
         Assert.assertTrue(productDetailPage.getProductDescription().contains(inventoryDescription));
-
         Assert.assertTrue(productDetailPage.isProductImageDisplayed());
     }
 

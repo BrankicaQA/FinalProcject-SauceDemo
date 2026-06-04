@@ -30,11 +30,7 @@ public class NonFunctionalTests extends BaseTest {
         inventoryPage = new InventoryPage();
         checkoutPage = new CheckoutPage();
         overviewPage = new OverviewPage();
-
-
     }
-
-
     @Test
     public void testCartIconRapidClicks() {
         loginPage.loginSetup(validUsername, validPassword);
@@ -43,11 +39,9 @@ public class NonFunctionalTests extends BaseTest {
             inventoryPage.addProduct(0);
             inventoryPage.removeProduct(0);
         }
-
         //asertacija jer očekujemo da se cart ikonica ponaša konzistentno
         Assert.assertEquals(cartPage.getCartIconCount(), 0);
     }
-
     @Test
     public void testLoginSqlInjection() {
         loginPage.loginSetup("' OR '1'='1", "secret_sauce");
@@ -56,14 +50,8 @@ public class NonFunctionalTests extends BaseTest {
         Assert.assertTrue(loginPage.errorMessage.isDisplayed());
         Assert.assertNotEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
-
-
-
-
     @AfterMethod
     public void tearDown(){
         driver.quit();
     }
-
-
 }

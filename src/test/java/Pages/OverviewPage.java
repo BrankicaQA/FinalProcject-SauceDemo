@@ -14,16 +14,12 @@ public class OverviewPage extends BaseTest {
     public OverviewPage() {
         PageFactory.initElements(driver, this);
     }
-
     @FindBy(className = "cart_list")
     public WebElement cartList;
-
     @FindBy(className = "summary_info_label")
     List<WebElement> summaryInfoLabels;
-
     @FindBy(id= "cancel")
     public WebElement cancelButton;
-
     @FindBy(id="finish")
     public WebElement finishButton;
 
@@ -36,14 +32,10 @@ public class OverviewPage extends BaseTest {
                 .findFirst()
                 .orElse("Not found");
     }
-
     public void clickOnCancelButton(){
         cancelButton.click();
     }
     public void clickOnFinishButton(){
         finishButton.click();
     }
-
-
-
 }

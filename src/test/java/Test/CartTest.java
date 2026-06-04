@@ -35,18 +35,14 @@ public class CartTest extends BaseTest {
 
     @Test
     public void verifyProductsAppearInCart() {
-
         inventoryPage.addProduct(1);
-
         cartPage.clickCartIcon();
-
         Assert.assertTrue(cartPage.getCartItems().size() >= 2);
     }
 
     @Test
     public void verifyQuantityOfProductsInCart() {
         cartPage.clickCartIcon();
-
         Assert.assertEquals(cartPage.getItemQuantity(0), "1");
     }
 
@@ -54,7 +50,6 @@ public class CartTest extends BaseTest {
     public void removeProductFromCart() {
         cartPage.clickCartIcon();
         cartPage.removeItem(0);
-
         Assert.assertTrue(inventoryPage.getCartQuantity().isEmpty());
     }
 

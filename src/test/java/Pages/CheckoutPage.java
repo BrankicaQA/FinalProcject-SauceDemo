@@ -25,34 +25,13 @@ public class CheckoutPage extends BaseTest {
     //--------------------- pravljenje metoda na osnogu definisanih lokatora i Webelemenata
 
     public void setFirstName(String FirstName){
-        firstName.sendKeys(FirstName);
-    }
+        firstName.sendKeys(FirstName);}
     public void setLastName(String LastName){
-        lastName.sendKeys(LastName);
-    }
+        lastName.sendKeys(LastName);}
     public void setPostalCode(String PostalCode){
-        postalCode.sendKeys(PostalCode);
-    }
-
+        postalCode.sendKeys(PostalCode);}
     public void clickContinueButton(){
-        continueButton.click();
-    }
+        continueButton.click();}
     public void clickCancelButton(){
-        cancelButton.click();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        cancelButton.click();}
 }

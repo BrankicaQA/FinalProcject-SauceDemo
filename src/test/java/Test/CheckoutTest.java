@@ -36,8 +36,6 @@ public class CheckoutTest extends BaseTest {
         cartPage = new CartPage();
         inventoryPage = new InventoryPage();
         checkoutPage = new CheckoutPage();
-
-
     }
     public void addProduct(){
         inventoryPage.addProduct(0);
@@ -55,18 +53,15 @@ public class CheckoutTest extends BaseTest {
         String expectedURL="https://www.saucedemo.com/checkout-step-two.html";
 
         assertEquals(driver.getCurrentUrl(), expectedURL);
-
     }
     @Test
-    public void testWithEmptyFields(){
+    public void testWithEmptyFields() {
         addProduct();
         checkoutPage.setFirstName("");
         checkoutPage.setLastName("");
         checkoutPage.setPostalCode("");
         checkoutPage.clickContinueButton();
         Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
-
-
     }
     @Test
     public void testWithEmptyFirstNameField() {
@@ -77,8 +72,6 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.clickContinueButton();
         Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
         assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
-
-
     }
     @Test
     public void testWithEmptyLastNameField() {
@@ -89,8 +82,6 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.clickContinueButton();
         Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
         assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
-
-
     }
     @Test
     public void testWithEmptyPostcodeField() {
@@ -101,8 +92,6 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.clickContinueButton();
         Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
         assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
-
-
     }
 
     @Test
@@ -120,12 +109,7 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.clickContinueButton();
         Assert.assertTrue(checkoutPage.errorMessage.isDisplayed());
         assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-one.html");
-
-
     }
-
-
-
 
     @AfterMethod
     public void tearDown(){

@@ -25,47 +25,34 @@ public class InventoryTest extends BaseTest {
         driver.navigate().to("https://www.saucedemo.com/");
         loginPage = new LoginPage();
 
-
         loginPage.loginSetup(validUsername, validPassword);
         inventoryPage = new InventoryPage();
-
     }
     @Test
     public void verifyInventoryPage() {
         Assert.assertTrue(inventoryPage.getProductCount() > 0,
                 "All products should be visible on inventory page");
     }
-
     @Test
     public void addSingleProductToCart() {
         inventoryPage.addProduct(0);
         Assert.assertEquals(inventoryPage.getCartQuantity(), "1",
                 "Cart icon should show quantity 1");
     }
-
     @Test
     public void addMultipleProductsToCart() {
-
         inventoryPage.addProduct(0);
         inventoryPage.addProduct(1);
         inventoryPage.addProduct(2);
-
-
         Assert.assertEquals(inventoryPage.getCartQuantity(), "3");
     }
 
     @Test
     public void removeProductFromCart() {
-
         inventoryPage.addProduct(0);
-
-
         inventoryPage.removeProduct(0);
-
         Assert.assertTrue(inventoryPage.getCartQuantity().isEmpty());
     }
-
-
 @AfterMethod
     public void closeApp(){
         driver.close();

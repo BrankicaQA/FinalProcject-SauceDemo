@@ -19,16 +19,12 @@ Nakon definisanja anotacija kreiram metode koje enkapsuliraju interakciju sa ele
 
     @FindBy(id="user-name")
     public WebElement usernameField;
-
     @FindBy(id= "password")
     public WebElement passwordField;
-
     @FindBy(id= "login-button")
     public WebElement loginButton;
-
     @FindBy(id="inventory_container")
     public WebElement inventoryContainer;
-
     @FindBy(css="div.error-message-container.error")
     public WebElement errorMessage;
 
@@ -41,11 +37,5 @@ Nakon definisanja anotacija kreiram metode koje enkapsuliraju interakciju sa ele
         passwordField.sendKeys(password);
         loginButton.click();
     }
-
-
-
-
-
-
 
 }
