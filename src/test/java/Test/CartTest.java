@@ -4,7 +4,6 @@ import Base.BaseTest;
 import Pages.CartPage;
 import Pages.InventoryPage;
 import Pages.LoginPage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;

@@ -2,14 +2,15 @@ package Pages;
 
 import Base.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
+import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class InventoryPage extends BaseTest {
     public InventoryPage(){
@@ -61,7 +62,14 @@ public class InventoryPage extends BaseTest {
         addToCartBackpack.click();
     }
     public void openBackpackDetails() {
-        backpackLink.click();
+
+        WebElement element = driver.findElement(By.id("item_4_title_link"));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", element);
     }
     public String getProductName() {
         return productName.getText();

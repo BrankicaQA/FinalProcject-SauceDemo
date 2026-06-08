@@ -2,19 +2,24 @@ package Test;
 
 import Base.BaseTest;
 import Pages.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class CompatibilityTest extends BaseTest {
     String validUsername = "standard_user";
     String validPassword = "secret_sauce";
+    @BeforeClass
+    public void setup() throws IOException {
+        WebDriverManager.chromedriver().setup();}
     @BeforeMethod
     public void pageSetup() {
         driver = new ChromeDriver();

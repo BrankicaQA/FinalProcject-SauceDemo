@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class InventoryTest extends BaseTest {
-
+    // Kredencijali validnog korisnika koji se koriste za login pre svakog testa
     String validUsername = "standard_user";
     String validPassword = "secret_sauce";
     @BeforeMethod

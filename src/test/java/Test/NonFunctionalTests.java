@@ -14,9 +14,6 @@ import java.time.Duration;
 public class NonFunctionalTests extends BaseTest {
     String validUsername = "standard_user";
     String validPassword = "secret_sauce";
-    String FirstName ="Brankica";
-    String LastName = "Rajkovic";
-    String PostalCode = "18000";
     @BeforeMethod
     public void pageSetup() {
         driver = new FirefoxDriver();
